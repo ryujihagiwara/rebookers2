@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+
+
+  	<div class="col-xs-3">
+  	  <h2>User info</h2>
+
+  	  <table class="table">
+  	      <tr>
+  	      	<%= attachment_image_tag @book.user, :profile_image, :fill, 60 ,60, class: "img-square pull-circle profile-img", fallback: "no_image.jpg" %>
+  	      </tr>
+
+  	    <tr>
+  	      <th>name</th>
+  	      <th><%= @book.user.name %></th>
+  	    </tr>
+  	    <tr>
+  	      <th>introduction</th>
+  	      <th><%= @book.user.introduction %></th>
+  	    </tr>
+
+      </table>
+
+      <div class="row">
+  	      <%= link_to '', edit_user_path(@book.user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+  	    </div>
+
+
+  	  <h2>New book</h2>
+
+  	  <%= form_for(@book_new) do |f| %>
+
+      <div class="row">
+        <h4>Title</h4>
+        <%= f.text_field :title, class: "col-xs-12" %>
+      </div>
+
+      <div class="row">
+        <h4>Opinion</h4>
+        <%= f.text_area :body, class: "col-xs-12" %>
+      </div>
+
+      <div class="actions row">
+        <%= f.submit 'Create Book', class: "col-xs-12 btn btn-primary" %>
+      </div>
+
+  	  <% end %>
+
+  	</div>
+
+  	<div class="col-xs-9">
+  	  <h2>Book detail</h2>
+
+  	  <table class="table">
+
+  	    <tbody>
+  	      <tr>
+  	        <td><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: "40x40" %>
+  	        </td>
+
+  	        <td><%= @book.title %></td>
+
+  	        <td><%= @book.body %></td>
+
+
+  	      </tr>
+
+  	    </tbody>
+  	  </table>
+
+
+
+  	</div>
+
+  </div>
+</div>
